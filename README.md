@@ -32,3 +32,5 @@ Substitute ios for android if not on a Mac.
 # probandotienda
 # probandotienda
 # probandotienda
+# tienda-con-error
+# tienda-con-error
