@@ -1,0 +1,40 @@
+page-detalle {
+	ion-content {
+		background-color: #fadbd8;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 100% 100%;
+		padding: .2em;
+	}
+	ion-list {
+		width: 75%;
+	}
+	h1 {
+		color: white;
+	}
+	.texto {
+		font-size: 1.20em;
+		color: #C70039;
+		text-align: justify;
+	}
+	ion-col {
+		border: .1em solid black;
+		background-color: #e5e8e8;
+		text-align: center;
+		font-size: 1.5em;
+	}
+	.mas {
+		background-color: #08f712;
+
+	}
+	.menos {
+		background-color: #f71a08;
+	}
+	.desactivar {
+		margin: auto;
+		background-color: black;
+		color: white;
+		width: 80%;
+		font-size: 1.5em;
+	}
+}

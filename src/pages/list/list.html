@@ -1,23 +1,38 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+
+  <ion-navbar color="primary">
+     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Vacaciones</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only
+            (click)="servCarrito.ver_carrito()">
+          <ion-icon name="cart" class="carro"></ion-icon>
+          <ion-badge color="primary" class=".carrito-numero"
+                      *ngIf="servCarrito.items.length > 0">
+                      {{ servCarrito.items.length }}
+        </ion-badge>
+      </button>
+    </ion-buttons>
+
+
   </ion-navbar>
+
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+
+<ion-content padding>
+
+<ion-list>
+  <ion-item *ngFor="let item of productos">
+    <ion-thumbnail item-start>
+      <img src="{{item.imagen}}">
+    </ion-thumbnail>
+    <h2>{{item.producto}}</h2>
+    <p class="precio">{{item.precio | number:'1.2-2'}} €</p>
+    <button ion-button clear item-end> <ion-icon name="md-arrow-round-forward" (click)="detallePagina(item)"></ion-icon></button>
+  </ion-item>
+</ion-list>
+
 </ion-content>

@@ -23,8 +23,26 @@ $app-direction: ltr;
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
 
-
-
+.carrito_vacio {
+	position: relative;
+	top: 30%;
+	font-size: 20px;
+}
+.icon-5x{
+	font-size: 100px;
+}
+.carrito-numero {
+	position: absolute;
+	top: -5px;
+	left: 18px;
+	z-index: 2;
+}
+.carro {
+	float: right;
+	margin-right: .1em;
+	font-size: 30px;
+	color: red;
+	}
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.

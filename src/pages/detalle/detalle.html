@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ item.producto }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+
+	<ion-card>
+	  <img [src]="item.imagen"/>
+		  <ion-card-content>
+		    <ion-card-title class="texto">
+		    <p>{{item.precio | number:'1.2-2'}} €</p>
+		      {{ item.descripcion }}
+		    </ion-card-title>
+		  </ion-card-content>
+		  <ion-grid>
+		  
+			  <ion-row>
+			    <ion-col col-3 class="mas">
+					<ion-icon md="md-add" (click)="anadir(item)"></ion-icon>
+			    </ion-col>
+			    <ion-col col-6>{{ cantidad }}</ion-col>
+			    <ion-col col-3 class="menos" *ngIf="ocultar == true" (click)="restar(item)"><ion-icon md="md-remove"></ion-icon></ion-col>
+			  </ion-row>
+
+					   
+			<button ion-icon  class="desactivar" [disabled]="cantidad < 1" (click)="restar(item)">restar</button>
+
+		  </ion-grid>
+
+		  <button ion-button block icon-left
+		  			(click)="servCarrito.agregar_carrito(item, item.cantidad)">
+		  	<ion-icon name="cart"> agregar al carrito</ion-icon>
+		  </button>
+
+
+		<ion-row>
+		    <ion-col>
+		      <button ion-button icon-left clear small (click)="meGusta(item)">
+		        <ion-icon name="thumbs-up"></ion-icon>
+		        <div>{{ megusta }} Likes</div>
+		      </button>
+		    </ion-col>
+		    <ion-col>
+		      <button ion-button icon-left clear small>
+		        <ion-icon name="text"></ion-icon>
+		        <div>4 Comments</div>
+		      </button>
+		    </ion-col>
+		</ion-row>
+	</ion-card>
+
+</ion-content>
