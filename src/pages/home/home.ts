@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CarritoCompraProvider } from '../../providers/carrito-compra/carrito-compra';
 
 @Component({
   selector: 'page-home',
@@ -7,7 +8,9 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public _cs: CarritoCompraProvider) {
   }
 
   ionViewDidLoad() {

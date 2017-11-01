@@ -16,8 +16,8 @@ export class CarritoCompraProvider {
 
 	items:any [] = [];
 	totaldelcarrito:number = 0;
-	cantidadtotal;
-	productos:any;
+	cantidadtotal:number = 0;
+	productos:any[] = [];
 	//items:any = [];
 	
   constructor( public alerta: AlertController,
@@ -37,11 +37,12 @@ export class CarritoCompraProvider {
 
 
 	ver_carrito(){
+
 		let modal:any;
 
 		if (this.us_servivio.token ){
 			//mostrar pagina del carrito
-			modal = this.modalCtrl.create( ProductosPage );
+			modal = this.modalCtrl.create( 'ProductosPage' );
 		}else{
 			//mostrar el login
 			modal = this.modalCtrl.create( LoginPage );
@@ -52,7 +53,7 @@ export class CarritoCompraProvider {
 
 		modal.onDidDismiss((abrirCarrito:boolean) =>{
 			if (abrirCarrito){
-				this.modalCtrl.create(ProductosPage).present();
+				this.modalCtrl.create('ProductosPage').present();
 			}
 		})
 
@@ -60,7 +61,7 @@ export class CarritoCompraProvider {
 
 
 
-//creamos un mecasnismo para añadir el producto al carro
+// //creamos un mecasnismo para añadir el producto al carro
 	
 	agregar_carrito( item_parametro:any) {
 
@@ -92,6 +93,7 @@ export class CarritoCompraProvider {
 				}).present();
 	}
 
+
 	actualizar_total(){
 		this.totaldelcarrito = 0;
 		for (let item of this.items) {
@@ -109,8 +111,8 @@ export class CarritoCompraProvider {
 			//ordenador
 			localStorage.setItem("items", JSON.stringify( this.items ));
 		}
-
 	}
+
 	cargar_storage(){
 
 		let promesa = new Promise ((resolve, reject) =>{
@@ -140,7 +142,7 @@ export class CarritoCompraProvider {
 		return promesa;
 
 }/*
-descarga(){
-	return Promise.resolve(this.items);
-}*/
+// descarga(){
+// 	return Promise.resolve(this.items);
+// }*/
 }
